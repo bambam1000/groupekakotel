@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kakotelgroup - S.A  {% endblock %}
+
+{% block body %}
+ <main class="main-accueil" id="main">
+    {% if home %}
+      
+      {% for page in home %}
+        
+     
+   
+
+  <!-- ======= About Lists Section ======= -->
+    <section class="about-lists">
+      <div class="container" >
+         
+        <div class="row no-gutters">
+              {% for section  in page.section %}
+                
+                 {% for actualite in section.actualite %}
+                    <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
+                 <!-- <span>01</span> -->
+                  <h4>{{actualite.titre}} </h4>
+            
+                 <a class="btn btn-kako btn-sml" href={{actualite.url}} type="submit">{{actualite.lien}} </a>
+                    </div>
+
+                 {% endfor %}   
+               
+           
+               {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- End About Lists Section -->
+    {% endfor %}
+   
+    
+ {% endif %}
+  
+  </main><!-- End #main -->
+
+  
+ 
+{% endblock %}

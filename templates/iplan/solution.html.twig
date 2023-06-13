@@ -1,0 +1,100 @@
+{% extends 'Iplan.html.twig' %}
+
+{% block title %}Hello IplannossolutionsController!{% endblock %}
+
+{% block body %}
+
+    {% if solutions %}
+       
+    {% for page in solutions %}
+        
+   
+  
+  {% for sections  in page.section %}
+          
+        {% if sections.id == 5 %}
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+          
+           
+                    
+          
+           
+        <div class="section-title">
+          <h2>{{sections.titrefr}} </h2>
+        </div>
+              
+        <div class="row">
+              {% for actualite in sections.iplanactualite %}
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="{{actualite.icon}}"></i></div>
+            <h4 class="title"><a href="editeur-de-logiciel.html">{{actualite.titrefr}} </a></h4>
+            <p class="description">{{actualite.contentfr}} </p>
+          </div>
+               {% endfor %} 
+        </div>
+        <div class="row command align-items-center" align="center">
+          <div class="col-lg-6   " data-aos="fade-up" data-aos-delay="500">
+            <p><span class="keyC">{{sections.paragraphefr}} </p>
+          </div>
+          <div class="col-lg-6   " data-aos="fade-up" data-aos-delay="500">
+            <a href="{{sections.url }}"class="btn-get-started ">{{sections.lienfr}} </a>
+          </div>
+        </div>
+      </div>
+      
+       {% endif %}
+    </section><!-- End Services Section -->
+
+      {% endfor %}
+
+
+      {% for  sections  in page.section %}
+          {% if sections.id == 6 %}
+            
+          
+
+    <!-- ======= coix de nos solutions ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{{sections.titrefr}} </h2>
+        </div>
+
+        <div class="row  d-flex align-items-stretch">
+               {% for actualite in sections.iplanactualite %}
+                
+              
+          <div class="col-lg-6 faq-item" data-aos="fade-up">
+            <h4>{{actualite.titrefr}} </h4>
+            <p>
+              {{actualite.contentfr}}
+            </p>
+          </div>
+
+               {% endfor %}
+
+           
+           
+                  
+
+        </div>
+        
+      </div>
+      
+        
+      
+    </section><!-- fin choix de nos solutions -->
+     {% endif %}
+       {% endfor %}
+
+
+
+       {% endfor %}  
+   {% endif %}
+  
+{% endblock %}

@@ -1,0 +1,231 @@
+{% extends 'Iplansu.html.twig' %}
+
+{% block title %}Hello IplanusController!{% endblock %}
+
+{% block body %}
+   {% if home %}
+    {% for page in home %}
+
+       <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+              
+              {% for sections in page.section %}
+                
+               {% if sections.id == 1 %}
+                
+             
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image:  url('/uploads/{{sections.Image.filename}}');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">{{sections.titrefr}} </span></h2>
+                <p class="animate__animated animate__fadeInUp">{{sections.contentfr}} </p>
+                <a href="{{sections.url}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">{{sections.lienfr}} </a>
+              </div>
+            </div>
+          </div>
+            {% endif %}
+           {% endfor %}
+
+           {% for sections in page.section %}
+               {% if sections.id == 2 %}
+                
+              
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url('/uploads/{{sections.Image.filename}}');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">{{sections.titrefr}} </h2>
+                <p class="animate__animated animate__fadeInUp">{{sections.contentfr}} </p>
+                <a href="{{sections.url}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">{{sections.lienfr}}</a>
+              </div>
+            </div>
+          </div>
+           {% endif %}
+           {% endfor %}
+            {% for sections in page.section %}
+               {% if sections.id == 3 %}
+                
+         <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url('/uploads/{{sections.Image.filename}}');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">{{sections.titrefr}}</h2>
+                <p class="animate__animated animate__fadeInUp">{{sections.contentfr}} </p>
+                <a href="{{sections.url}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">{{sections.lienfr}}</a>
+              </div>
+            </div>
+          </div>
+           {% endif %}
+           {% endfor %}
+          
+          
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+     
+     {% for sections in page.section %}
+     {% if sections.id == 4 %}
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row no-gutters">
+          <div class="col-lg-6 video-box">
+            <img src="/uploads/{{sections.Image.filename}}" class="img-fluid" alt="">
+            
+          </div>
+            
+              
+             
+          <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+
+            <div class="section-title">
+              <h2>{{sections.titrefr}} </h2>
+              <p> {{sections.contentfr}} </p>
+                  <a href="{{sections.url}} " class="btn-get-started " >{{sections.lienfr}} </a>
+            </div>
+
+             
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+       {% endif %}  
+     {% endfor %}
+
+
+
+     {% for sections in page.section %}
+      
+         {% if sections.id == 5 %}
+          
+        
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{{sections.titrefr}} </h2>
+        </div>
+         
+        <div class="row">
+          {% for actualite in sections.actualite %}
+          
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="{{actualite.icon}} "></i></div>
+            <h4 class="title"><a href="editeur-de-logiciel.html">{{actualite.titrefr}} </a></h4>
+            <p class="description">{{actualite.contentfr}} </p>
+          </div>
+            
+          
+           
+          {% endfor %} 
+          
+        
+        </div>
+        <div class="row command align-items-center" align="center">
+          <div class="col-lg-6   " data-aos="fade-up" data-aos-delay="500">
+            <p><span class="keyC">{{sections.paragraphefr}} </p>
+          </div>
+          <div class="col-lg-6   " data-aos="fade-up" data-aos-delay="500">
+            <a href="{{sections.url}} " class="btn-get-started "> {{sections.lienfr}} </a>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+        {% endif %}
+ {% endfor %}
+   
+
+
+{% for sections in  page.section %}
+       {% if sections.id == 6  %}
+        
+    
+    <!-- ======= coix de nos solutions ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{{sections.titrefr}} </h2>
+        </div>
+
+        <div class="row  d-flex align-items-stretch">
+             {% for actualite in sections.actualite %}
+              
+            
+          <div class="col-lg-6 faq-item" data-aos="fade-up">
+            <h4>{{actualite.titrefr}} </h4>
+            <p>
+              {{actualite.contentfr}}
+            </p>
+          </div>
+
+            {% endfor %}
+  
+
+        </div>
+        
+      </div>
+    </section><!-- fin choix de nos solutions -->
+       {% endif %}
+
+    {% endfor %}
+
+
+    {% for sections in page.section %}
+      
+     {% if sections.id == 7 %}
+      
+   
+    <section id="services" class="logo-list services">
+      <div class="container">
+        <div class="section-title">
+          <h2>{{sections.titrefr}} </h2>
+        </div>
+          <div class="row">
+               {% for actualite in sections.actualite %}
+           
+              <div class="col-lg-2 col-md-4 col-6">
+                     <a href="#"> <img src="/uploads/{{actualite.Image.filename}}" class="img-fluid" alt=""></a>
+              </div>
+                    
+              {% endfor %}
+             
+              
+          </div>
+      </div>
+  </section>
+    
+
+  </main><!-- End #main -->
+     {% endif %}
+   {% endfor %}
+
+    {% endfor %}
+
+
+    
+   {% endif %}
+
+{% endblock %}
